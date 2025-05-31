@@ -18,7 +18,7 @@ namespace EspacioEmpleado
         private double sueldoBasico;
         private Cargos cargo;
         //ejercicio a
-        public int antiguedad //uso propiedad ya que es un calculo simple
+        public int Antiguedad //uso propiedad ya que es un calculo simple
         {
             get
             {
@@ -31,7 +31,7 @@ namespace EspacioEmpleado
                 return antiguedad;
             }
         }
-        public int edadEmpleado
+        public int EdadEmpleado
         {
             get
             { //una manera de usar get
@@ -45,12 +45,12 @@ namespace EspacioEmpleado
             }
         }
 
-        public int cantidadDeAniosFaltantes
+        public int CantidadDeAniosFaltantes
         {
             get
             {
                 int cantAniosFaltantes;
-                int edadActual = edadEmpleado;//puedo usar la propiedad para calculos
+                int edadActual = EdadEmpleado;//puedo usar la propiedad para calculos
                 cantAniosFaltantes = 65 - edadActual;
 
                 if (cantAniosFaltantes < 0)
@@ -61,9 +61,9 @@ namespace EspacioEmpleado
             }
         }
         //ejercicio b
-        public double salario()
+        public double Salario()
         {
-            int aniosAntiguedad = antiguedad;//aqui llamo a la propiedad antiguedad
+            int aniosAntiguedad = Antiguedad;//aqui llamo a la propiedad antiguedad
             double adicional, total;
             if (aniosAntiguedad < 20)
             {
@@ -85,7 +85,60 @@ namespace EspacioEmpleado
             return total;
         }
         //Ejercicio3 metodo constructor
-        
-        
+        public Empleado(string nombre, string apellido, DateTime fechaNacimiento, char estadoCivil, DateTime fechaIngreso, double sueldoBasico, Cargos cargo)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.fechaNacimiento = fechaNacimiento;
+            this.estadoCivil = estadoCivil;
+            fechaIngresoEmpresa = fechaIngreso;
+            this.sueldoBasico = sueldoBasico;
+            this.cargo = cargo;
+        }
+
+        //ejercicio e
+        public string Nombre
+        {
+            get => nombre;
+        }
+        public string Apellido => apellido; //otra manera de hacer una propiedad get
+        public DateTime FechaNacimiento
+        {
+            get => fechaNacimiento;
+        }
+        public char EstadoCivil
+        {
+            get => estadoCivil;
+        }
+        public DateTime FechaIngresoEmpresa
+        {
+            get => fechaIngresoEmpresa;
+        }
+        public double SueldoBasico
+        {
+            get => sueldoBasico;
+        }
+        public Cargos Cargo
+        {
+            get => cargo;
+        }
+
+        //esto es otra forma de hacer el ejercicio e, con un metodo void que escriba todos los datos
+        /*
+        public void MostrarDatos()
+        {
+            Console.WriteLine($"Nombre: {nombre} {apellido}");
+            Console.WriteLine($"Fecha de nacimiento: {fechaNacimiento.ToShortDateString()}");
+            Console.WriteLine($"Edad: {EdadEmpleado} años");
+            Console.WriteLine($"Estado civil: {(estadoCivil == 'c' ? "Casado" : "Soltero")}");
+            Console.WriteLine($"Fecha de ingreso: {fechaIngresoEmpresa.ToShortDateString()}");
+            Console.WriteLine($"Antigüedad: {Antiguedad} años");
+            Console.WriteLine($"Años faltantes para jubilarse: {CantidadDeAniosFaltantes}");
+            Console.WriteLine($"Cargo: {cargo}");
+            Console.WriteLine($"Sueldo básico: ${sueldoBasico:N2}");
+            Console.WriteLine($"Salario total: ${Salario():N2}");
+        }
+
+        */
     }
 }
