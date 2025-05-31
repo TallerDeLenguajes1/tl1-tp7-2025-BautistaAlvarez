@@ -14,13 +14,30 @@ namespace EspacioCalculadora{
             dato += termino;
         }
 
-        public void dividir(double termino){
-            if (termino != 0) dato = dato/termino;
+        public void restar(double termino)
+        {
+            dato -= termino;
+        }
+
+        public void multiplicar(double termino)
+        {
+            dato = dato * termino;
+        }
+
+        public void dividir(double termino)
+        {
+            if (termino != 0) dato = dato / termino;
             else Console.WriteLine("No se puede dividir en 0");
         }
 
-        public double GetResultado(){
-            return dato;
+        public void limpiar()
+        {
+            dato = 0;
+        }
+        
+        public double Resultado //Propiedad(una funcion para obtener el dato privado) en este caso solo get, el set es para poder darle un valor fuera
+        {
+            get => dato;
         }
     }
 
